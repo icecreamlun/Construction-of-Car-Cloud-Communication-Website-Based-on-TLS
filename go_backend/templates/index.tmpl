@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Login and Registration</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            background-color: #f0f0f0;
+        }
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background-color: white;
+        max-width: 400px;
+        margin: auto;
+        padding: 1rem;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+
+    .header {
+        background-color: #000;
+        color: white;
+        padding: 1rem;
+        
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    .header a {
+        color: white;
+        text-decoration: none;
+        margin-left: 2rem;
+    }
+
+    h1 {
+        margin-bottom: 1rem;
+    }
+
+    label {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1rem;
+        width: 100%;
+    }
+
+    input {
+        margin-left: 1rem;
+    }
+
+    .button-group {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        margin-right:10rem;
+    }
+
+    button {
+        margin: 0 1rem;
+    }
+</style>
+</head>
+<body>
+    <div class="header">
+        <h2>User Login and Registration</h2>
+        <div>
+            <a href="#" class="chat">chat</a>
+            <a href="#" class="question">question</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2>User Login and Registration</h2>
+        <form method="POST" action="/">
+            <input type="hidden" name="formType" value="register">
+            <label>Username: <input type="text" name="username" required></label>
+            <label>Password: <input type="password" name="password" required></label>
+            <div class="button-group">
+                <button type="submit" name="form" value="register">Register</button>
+                <button type="submit" name="form" value="login">Login</button>
+            </div>
+        </form>
+        <script>
+            var formTypeField = document.getElementsByName("formType")[0];
+            var registerButton = document.getElementsByTagName("button")[0];
+            var loginButton = document.getElementsByTagName("button")[1];
+        registerButton.onclick = function() {
+          formTypeField.value = "register";
+        };
+
+        loginButton.onclick = function() {
+          formTypeField.value = "login";
+        };
+    </script>
+</div>
+</body>
+</html>

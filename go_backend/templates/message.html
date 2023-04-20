@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scoutmini Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background-color: #ffffff;
+        color: #000000;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+    }
+
+    .top-bar {
+        background-color: #000000;
+        width: 100%;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    .top-bar a {
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 20px;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    main {
+        dispaly : fles;
+        flex_direction :column;
+        align-items: center;
+        justify-content : center;
+        width:100%;
+        padding-top: 60px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    th, td {
+        border: 1px solid #e0e0e0;
+        padding: 10px;
+    }
+
+    thead {
+        background-color: #e0e0e0;
+    }
+</style>
+</head>
+<body>
+    <div class="top-bar">
+        <a href="#">Product</a>
+        <a href="#">Question</a>
+        <a href="#">Chat</a>
+    </div>
+    <main>
+        <h1>Scoutmini Car Information</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>ScoutID</th>
+                    <th>Control Mode</th>
+                    <th>Vehicle tate</th>
+                    <th>Error code</th>
+                    <th>Battery Voltage</th>
+                    <th>Linear V</th>
+                    <th>Angular V</th>
+                    <th>Core State Age</th>
+                    <th>Motor Current</th>
+                    <th>Rpm</th>
+                    <th>Driver Temp</th>
+                    <th>Motor Temp</th>
+                    <th>Actuator Statea</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{ range .data }}
+                <tr>
+                    <td>{{ .scout_id }}</td>
+                    <td>{{ .control_mode }}</td>
+                    <td>{{ .vehicle_state }}</td>
+                    <td>{{ .error_code }}</td>
+                    <td>{{ .battery_voltage }}</td>
+                    <td>{{ .linear_velocity }}</td>
+                    <td>{{ .angular_velocity }}</td>
+                    <td>{{ .core_state_age }}</td>
+                    <td>{{ .motor_current }}</td>
+                    <td>{{ .rpm }}</td>
+                    <td>{{ .driver_temp }}</td>
+                    <td>{{ .motor_temp }}</td>
+                    <td>{{ .actuator_state_age }}</td>
+                </tr>
+                {{ end }}
+            </tbody>
+        </table>
+    </main>
+    <script>
+        //upload the UI
+        setInterval(function(){
+            window.location.reload();
+        }, 1000);
+    </script>
+</body>
+</html>
